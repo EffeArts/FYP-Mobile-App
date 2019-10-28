@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Card history</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row *ngIf="commuter_status">
+    <ion-list *ngIf="has_tripped">
+      <ion-item *ngFor="let trip of trips">
+        <p>Date and Time: {{ trip.timestamp }}</p>
+        <h2>Route: {{ trip.departure }} to {{ trip.destination }}</h2>
+        <h3>Bus: {{ trip.bus }}</h3>
+        <h3>Fare: {{ trip.fare }}</h3>
+        
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngIf="!has_tripped">
+        <ion-item>
+          <p class="ion-text-center">No trips made with your card yet!</p>
+        </ion-item>
+  
+      </ion-list>
+  </ion-row>
+  
+
+  <ion-row *ngIf="!commuter_status">
+    <ion-card>
+     <ion-card-content >
+        <p>It looks like you have not yet applied for you travel smart card.</p>
+        <p>You can still apply for it NOW.</p>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button color="danger" block (click) = "applicationPage()">
+      Apply for a card
+    </button>
+  </ion-row>
+</ion-content>

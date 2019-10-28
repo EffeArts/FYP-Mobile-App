@@ -1,14 +1,55 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Home - FYP Mobile App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card *ngFor="let member of members">
+
+    <ion-item>
+      <h2>Welcome</h2>
+      <p>{{ member.lname }}, {{ member.fname }}</p>
+    </ion-item>
+
+    <ion-card-content *ngIf="!commuter_status">
+      <p>It looks like you have not yet applied for your travel smart card.</p>
+      <p>You can still apply for it NOW.</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="logout()">
+          <ion-icon name="log-out"></ion-icon>
+          <div>Logout</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="openSetting()">
+          <ion-icon name="person"></ion-icon>
+          <div>Setting</div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-row *ngIf="!commuter_status">
+    <button ion-button color="danger" block (click) = "applicationPage()">
+      Apply for a card
+    </button>
+  </ion-row>
+  
+  <ion-row *ngIf="commuter_status">
+    <button ion-button color="danger" block (click) = "cardPage()">
+      Manage your card
+    </button>
+  </ion-row>
 </ion-content>

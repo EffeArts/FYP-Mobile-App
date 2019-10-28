@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My Card</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page" >
+<ion-row *ngIf="commuter_status">
+    <ion-card class = "system-card" *ngFor="let card of cards">
+        <img src="assets/imgs/card-background.jpg"/>
+        <div class="card-title">Card Number : {{ card.unique_id }}</div>
+        <div class="card-balance">Balance: {{ card.balance }} Tsh</div>
+      </ion-card>
+    
+      <ion-card>
+        <ion-card-header>
+          Card Status
+        </ion-card-header>
+        <ion-card-content>
+          {{ card_statuses }}
+        </ion-card-content>
+      </ion-card>
+
+    
+      <ion-card>
+        <ion-card-header>
+          Last top up
+        </ion-card-header>
+        <ion-card-content>
+          {{ last_topup }}
+        </ion-card-content>
+      </ion-card>
+    
+      <ion-card>
+        <ion-card-header>
+          Last used
+        </ion-card-header>
+        <ion-card-content>
+          {{ last_used }}
+        </ion-card-content>
+      </ion-card>
+</ion-row>
+
+<ion-row *ngIf="!commuter_status">
+  <ion-card>
+      <ion-card-content >
+        <p>It looks like you have not yet applied for you travel smart card.</p>
+        <p>You can still apply for it NOW.</p>
+      </ion-card-content>
+  </ion-card>
+  <button ion-button color="danger" block (click) = "applicationPage()">
+      Apply for a card
+  </button>
+</ion-row>
+  
+</ion-content>

@@ -1,0 +1,45 @@
+.block-button{
+   margin-top: 50px;
+}
+
+   .system-card {
+     position: relative;
+     text-align: center;
+   }
+ 
+   .card-title {
+     position: absolute;
+     top: 20%;
+     font-size: 1.1em;
+     width: 100%;
+     font-weight: bold;
+     color: #fff;
+   }
+ 
+   .card-balance {
+     font-size: 1.7em;
+     position: absolute;
+     top: 50%;
+     width: 100%;
+     color: #fff;
+   }
+ 
+   .card-status {
+    font-size: 1.0em;
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    color: #fff;
+  }
+ 
+  .card-last-use {
+    font-size: 1.0em;
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    color: #fff;
+  }
+
+  .settings-text{
+     text-align: center !important;
+  }

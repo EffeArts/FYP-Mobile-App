@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Card settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row *ngIf="!commuter_status">
+    <ion-card>
+     <ion-card-content >
+        <p>It looks like you have not yet applied for you travel smart card.</p>
+        <p>You can still apply for it NOW.</p>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button color="danger" block (click) = "applicationPage()">
+      Apply for a card
+    </button>
+  </ion-row>
+
+  <ion-row *ngIf="commuter_status">
+    <ion-card class = "system-card" *ngFor="let card of cards">
+      <img src="assets/imgs/card-background.jpg"/>
+      <div class="card-title">Card Number : {{ card.unique_id }}</div>
+      <div class="card-balance">Balance: {{ card.balance }} Tsh</div>
+    </ion-card>
+
+    <p class="settings-text">Manage your card settings here by blocking it or changing the pin.</p>
+    <ion-col>
+      <button ion-button round block color="warning" (click)="ChangePin_pin_check()" class="block-button">
+        Change Pin
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button round block color="danger" (click)="cardSettings_pin_check()">
+        Block Card
+      </button>
+    </ion-col>
+
+    
+  </ion-row>
+</ion-content>

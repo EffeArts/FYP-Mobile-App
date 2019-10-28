@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>All routes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class = "route-cards-page">
+
+  <!-- <ion-card *ngFor="let route of routes">
+    <ion-row>
+      <ion-col>{{ route.departure }}</ion-col>
+      <ion-col> to </ion-col>
+      <ion-col>{{ route.destination }}</ion-col>
+    </ion-row>
+
+    <ion-row>
+     <div class="card-subtitle">Fare: {{ route.fare }}</div>
+    </ion-row>
+    
+  </ion-card> -->
+
+  <ion-list >
+    <ion-list-header class="list-header">
+      All Available Routes
+    </ion-list-header>
+
+    <ion-item *ngFor="let route of routes"> 
+      <h3>{{ route.departure }} -- {{ route.destination }}</h3>
+      <p>Fare: Tsh {{ route.fare }} </p>  
+    </ion-item>
+  </ion-list>
+
+</ion-content>
